@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider  } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider  } from 'react-router-dom'
+import Authorization from './Components/Authorization';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App /> 
+    element: <Authorization />, 
+    errorElement: <div> Error 4040 Not Found</div>
   }  
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
