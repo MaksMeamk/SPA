@@ -1,8 +1,7 @@
-import { Route, Router } from "react-router-dom";
-import "./App.css";
+import './App.scss';
 
 function App() {
-  return <span> dasdsadasd </span>;
+  return <span className="span"> it is me SPA default </span>;
 }
 
 export default App;
