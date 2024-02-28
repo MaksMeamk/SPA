@@ -2,8 +2,25 @@ import React, { useState } from 'react';
 import { Input, ConfigProvider, Button } from 'antd';
 import logo from '../../img/sibdev-logo.png';
 import '../Authorization/authorization.scss';
+import { fetchAuthorization } from '../../Requests';
+import { useNavigate } from 'react-router-dom';
 function Authorization() {
-   const [authorizationData, setauthorizationData] = useState();
+   const navigate = useNavigate();
+   const [authorizationData, setauthorizationData] = useState({
+      email: '',
+      password: '',
+   });
+   const onFinish = async () => {
+      try {
+         await fetchAuthorization(authorizationData);
+         navigate('/tasks');
+      } catch (error) {
+         onFinishFailed(error.message);
+      }
+   };
+   const onFinishFailed = (errorInfo) => {
+      console.log('Failed:', errorInfo);
+   };
    return (
       <form className="block-authorization">
          <ConfigProvider
@@ -27,15 +44,17 @@ function Authorization() {
                </div>
                <div className="block-authorization__text">Вход</div>
 
-               <div className="block-authorization__input-login">
-                  <label className="label">Логин:</label>
+               <div className="block-authorization__input-email">
+                  <label className="label">Email:</label>
                   <Input
+                     type="email"
                      onChange={(e) =>
                         setauthorizationData((authorizationData) => ({
                            ...authorizationData,
-                           login: e.target.value,
+                           email: e.target.value,
                         }))
                      }
+                     value={authorizationData.email}
                   />
                </div>
 
@@ -48,6 +67,7 @@ function Authorization() {
                            password: e.target.value,
                         }))
                      }
+                     value={authorizationData.password}
                   />
                </div>
 
@@ -55,7 +75,7 @@ function Authorization() {
                   <Button
                      className="button"
                      type="primary"
-                     onClick={() => console.log('button click')}
+                     onClick={() => onFinish()}
                   >
                      Войти
                   </Button>
