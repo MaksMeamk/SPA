@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input, ConfigProvider, Button } from 'antd';
 import logo from '../../img/sibdev-logo.png';
-import '../Authorization/authorization.scss';
+import '../Authorization/style.scss';
 import { fetchAuthorization } from '../../Requests';
 import { useNavigate } from 'react-router-dom';
 function Authorization() {
