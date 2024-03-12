@@ -5,11 +5,13 @@ import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Authorization from './Components/Authorization';
+import { HomePage } from './Components/HomePage';
+import { Header } from './Components/Header';
 
 const router = createBrowserRouter([
    {
       path: '/',
-      element: <Authorization />,
+      element: <HomePage />,
       errorElement: <div> Error 404 Not Found</div>,
    },
 ]);
