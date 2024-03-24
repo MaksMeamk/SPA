@@ -1,8 +1,23 @@
 .block-homePage {
    max-width: 1040px;
    margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   min-height: 100vh;
+
    .block-homePage__items {
+      max-width: 467px;
+      flex-grow: 1;
+      .block-homePage__text {
+         font-size: 36px;
+         line-height: 52px;
+         text-align: center;
+         padding-bottom: 40px;
+      }
       .block-homePage__search {
+         display: flex;
       }
    }
 }
