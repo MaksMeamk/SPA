@@ -26,3 +26,21 @@ export const handlingError = (error) => {
       }
    }
 };
+
+export const fetchSearch = async (data) => {
+   const apiKey = 'AIzaSyAIDhQZwvq8pHXi3p8gZiijURh4ucS0vic';
+   const searchQuery = data;
+   const maxResults = 20;
+   const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&q=${searchQuery}&type=video&maxResults=${maxResults}&key=${apiKey}`;
+
+   // `https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyAIDhQZwvq8pHXi3p8gZiijURh4ucS0vic
+   // &part=snippet,contentDetails,statistics,status&maxResults=${maxResults}`;
+
+   try {
+      const response = await axios.get(apiUrl);
+      console.log(response.data);
+      return response;
+   } catch (error) {
+      handlingError(error);
+   }
+};

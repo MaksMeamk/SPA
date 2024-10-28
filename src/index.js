@@ -5,13 +5,14 @@ import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Authorization from './Components/Authorization';
-import { HomePage } from './Components/HomePage';
+import { Search } from './Components/Search';
 import { Header } from './Components/Header';
+import { ResultSearch } from './Components/ResultSearch';
 
 const router = createBrowserRouter([
    {
       path: '/',
-      element: <HomePage />,
+      element: <Search />,
       errorElement: <div> Error 404 Not Found</div>,
    },
 ]);
@@ -26,3 +27,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+//AIzaSyAIDhQZwvq8pHXi3p8gZiijURh4ucS0vic - Api key for Youtube API

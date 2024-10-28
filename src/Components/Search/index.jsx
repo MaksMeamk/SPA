@@ -2,7 +2,9 @@ import React from 'react';
 import { Header } from '../Header';
 import './style.scss';
 import { Input, ConfigProvider, Button } from 'antd';
-export const HomePage = () => {
+import { fetchSearch } from '../Authorization/Requests';
+export const Search = () => {
+   const[dataSearch, setDataSearch] = React.useState({search: ''});
    return (
       <>
          <Header />
@@ -22,19 +24,30 @@ export const HomePage = () => {
                               activeBorderColor: 'rgba(19, 144, 229, 1)',
                               paddingBlock: '5px',
                            },
+                           Button: {
+                              contentFontSize: '20px',
+                              paddingBlock: '14px',
+                              paddingInline: '46px',
+                              controlHeight: '52px',
+                           }
                         },
                      }}
                   >
-                     <Input
-                     // onChange={(e) =>
-                     //    setauthorizationData((authorizationData) => ({
-                     //       ...authorizationData,
-                     //       email: e.target.value,
-                     //    }))
-                     // }
-                     // value={authorizationData.email}
+                     <Input placeholder='Что хотите посмотреть?'
+                      onChange={(e) =>
+                         setDataSearch((dataSearch) => ({
+                            ...setDataSearch,
+                            search: e.target.value,
+                        }))
+                      }
+                      value={dataSearch.search}
                      />
-                     <Button type="primary">Найти</Button>
+                     <Button 
+                        type="primary"
+                        onClick={() => fetchSearch(dataSearch.search)}
+                     >
+                        Найти
+                     </Button>
                   </ConfigProvider>
                </div>
             </div>

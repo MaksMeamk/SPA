@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input, ConfigProvider, Button } from 'antd';
 import logo from '../../img/sibdev-logo.png';
 import '../Authorization/style.scss';
-import { fetchAuthorization } from '../../Requests';
+import { fetchAuthorization } from './Requests';
 import { useNavigate } from 'react-router-dom';
 function Authorization() {
    const navigate = useNavigate();
@@ -45,9 +45,8 @@ function Authorization() {
                <div className="block-authorization__text">Вход</div>
 
                <div className="block-authorization__input-email">
-                  <label className="label">Email:</label>
-                  <Input
-                     type="email"
+                  <label className="label">Логин:</label>
+                  <Input                     
                      onChange={(e) =>
                         setauthorizationData((authorizationData) => ({
                            ...authorizationData,
