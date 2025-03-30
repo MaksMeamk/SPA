@@ -13,7 +13,7 @@ function Authorization() {
    const onFinish = async () => {
       try {
          await fetchAuthorization(authorizationData);
-         navigate('/tasks');
+         navigate('/search');
       } catch (error) {
          onFinishFailed(error.message);
       }

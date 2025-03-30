@@ -1,0 +1,21 @@
+.block-header {
+  background-color: white;
+}
+.block-header .block-header__items {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.block-header .block-header__items .block-header__logo-button .block-header__image-logo {
+  width: 48px;
+}
+.block-header .block-header__items .block-header__button {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(19, 144, 229);
+  padding: 26px 20px;
+}
+.block-header .block-header__items .block-header__button_right {
+  margin-left: auto;
+}/*# sourceMappingURL=style.css.map */

@@ -1,25 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-//import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter  } from 'react-router-dom';
 import Authorization from './Components/Authorization';
 import { Search } from './Components/Search';
 import { Header } from './Components/Header';
 import { ResultSearch } from './Components/ResultSearch';
 
-const router = createBrowserRouter([
-   {
-      path: '/',
-      element: <Search />,
-      errorElement: <div> Error 404 Not Found</div>,
-   },
-]);
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <React.StrictMode>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+         <App/>
+      </BrowserRouter>
    </React.StrictMode>,
 );
 
