@@ -4,7 +4,7 @@ export const fetchAuthorization = async (data) => {
    try {
       const response = await axios.post(
          `${process.env.REACT_APP_LOGIN_URL}/api/auth/login`,
-         data,
+         data
       );
       const token = response.data.token;
       localStorage.setItem('token', token);
@@ -14,6 +14,12 @@ export const fetchAuthorization = async (data) => {
    }
 };
 export const handlingError = (error) => {
+   if (error) {
+      if (Array.isArray(error.errors)) {
+         alert(error.message);
+         throw new Error('response have a lot mistackes');
+      }
+   }
    if (error.response) {
       if (Array.isArray(error.response.data.errors)) {
          error.response.data.errors.forEach((item) => {
@@ -24,23 +30,5 @@ export const handlingError = (error) => {
          alert(error.response.data.message);
          throw new Error(error.response.data.message);
       }
-   }
-};
-
-export const fetchSearch = async (data) => {
-   const apiKey = 'AIzaSyAIDhQZwvq8pHXi3p8gZiijURh4ucS0vic';
-   const searchQuery = data;
-   const maxResults = 20;
-   const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&q=${searchQuery}&type=video&maxResults=${maxResults}&key=${apiKey}`;
-
-   // `https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyAIDhQZwvq8pHXi3p8gZiijURh4ucS0vic
-   // &part=snippet,contentDetails,statistics,status&maxResults=${maxResults}`;
-
-   try {
-      const response = await axios.get(apiUrl);
-      console.log(response.data);
-      return response;
-   } catch (error) {
-      handlingError(error);
    }
 };

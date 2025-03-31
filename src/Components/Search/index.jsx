@@ -2,9 +2,9 @@ import React from 'react';
 import { Header } from '../Header';
 import './style.scss';
 import { Input, ConfigProvider, Button } from 'antd';
-import { fetchSearch } from '../Authorization/Requests';
+import { fetchSearch } from './Requests';
 export const Search = () => {
-   const[dataSearch, setDataSearch] = React.useState({search: ''});
+   const [dataSearch, setDataSearch] = React.useState({ search: '' });
    return (
       <>
          <Header />
@@ -29,20 +29,21 @@ export const Search = () => {
                               paddingBlock: '14px',
                               paddingInline: '46px',
                               controlHeight: '52px',
-                           }
+                           },
                         },
                      }}
                   >
-                     <Input placeholder='Что хотите посмотреть?'
-                      onChange={(e) =>
-                         setDataSearch((dataSearch) => ({
-                            ...setDataSearch,
-                            search: e.target.value,
-                        }))
-                      }
-                      value={dataSearch.search}
+                     <Input
+                        placeholder="Что хотите посмотреть?"
+                        onChange={(e) =>
+                           setDataSearch((dataSearch) => ({
+                              ...setDataSearch,
+                              search: e.target.value,
+                           }))
+                        }
+                        value={dataSearch.search}
                      />
-                     <Button 
+                     <Button
                         type="primary"
                         onClick={() => fetchSearch(dataSearch.search)}
                      >
