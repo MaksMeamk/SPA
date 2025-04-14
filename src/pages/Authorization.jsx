@@ -1,8 +1,8 @@
-import '../scss/Authorization.scss';
+import './Authorization.scss';
 function Authorization() {
   return (
     <>
-      <div></div>
+      <div>Авторизация</div>
     </>
   );
 }
