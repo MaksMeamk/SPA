@@ -1,0 +1,11 @@
+.button {
+    width: 176px;
+    height: 52px;
+    border-radius: 5;
+    background-color: "#1390E5";
+    transition: background-color 0.3s ease;
+
+    &:active {
+        background-color: "#E0F2FF"
+    }
+}
