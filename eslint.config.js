@@ -6,7 +6,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 
 export default [
-  { ignores: ['dist', 'build/'] },
+  { ignores: ['dist', 'build/', '**/*.scss', '**/*.css'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
